@@ -14,8 +14,8 @@ import java.util.ArrayList;
  * @author jonathanvega
  */
 public class Refoods extends Usuario {
-    ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
-    ArrayList<Fundacion> fundaciones = new ArrayList<Fundacion>();
+    private ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
+    private ArrayList<Fundacion> fundaciones = new ArrayList<Fundacion>();
     
 
 
@@ -40,9 +40,7 @@ public class Refoods extends Usuario {
     public void setFundaciones(ArrayList<Fundacion> fundaciones) {
         this.fundaciones = fundaciones;
     }
-    
-    
-    
+
     public void mostrarRestaurantes() //Resivir elemento grafico
     {
         Metodos.mostrarDatos(restaurantes);
@@ -72,6 +70,13 @@ public class Refoods extends Usuario {
             }
         }*/
         
+    }
+    public void mostrarRestaurante(){
+        for (Restaurante restaurante : restaurantes){
+            restaurante.mostrarRestaurante();
+            
+        
+        }
     }
 
     /*@Override

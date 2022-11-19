@@ -4,10 +4,27 @@
  */
 package Modelos;
 
+import Enums.Tipo_Usuario;
+
 /**
  *
  * @author jonathanvega
  */
-public class Admin {
+public class Admin extends UsuarioPersona{
+    Restaurante restaurante;    
+
+    public Admin(Restaurante restaurante, String rut, String nombreRestaurante, String nombreUsuario, String contrasena, Tipo_Usuario tipoUsuario) {
+        super(rut, nombreRestaurante, nombreUsuario, contrasena, tipoUsuario);
+        this.restaurante = restaurante;
+    }
+
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
+    }
     
 }
