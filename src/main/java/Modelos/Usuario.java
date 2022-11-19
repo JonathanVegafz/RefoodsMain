@@ -6,25 +6,28 @@ package Modelos;
 
 import Enums.Tipo_Usuario;
 
-
 /**
  *
  * @author jonathanvega
  */
 public /*abstract*/ class Usuario {
-    protected String nombreUsuario;
-    protected String contrasena;
-    protected Tipo_Usuario tipoUsuario;
+
+    private String nombreUsuario;
+    private String contrasena;
+    private String numeroTelefono;
+    private String correoElectronico;
+
+    private Tipo_Usuario tipoUsuario;
+    private int id;
 
     public Usuario(String nombreUsuario, String contrasena, Tipo_Usuario tipoUsuario) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.tipoUsuario = tipoUsuario;
     }
-    
+
     ///public abstract void cambioContrasena(String nuevaContrasena);
     //public abstract void cambionNombreUsuario(String nuevoNombreUsuario);
-
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -48,8 +51,30 @@ public /*abstract*/ class Usuario {
     public void setTipoUsuario(Tipo_Usuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    
-    
+
 }
-            
