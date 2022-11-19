@@ -73,19 +73,26 @@ public class Metodos {
         }
     }
     
-    public static <T> int crearId(ArrayList<T> lista) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException //Pensarlo
+    public static <T> int crearId(ArrayList<T> lista)  //Pensarlo
     {
-        for(int i = 0 ; i < lista.size() ; i++)
-        {
-            Method metodo = lista.get(i).getClass().getDeclaredMethod("getId");
-            int id = (int)metodo.invoke(lista.get(i));
-            
-            if(i != id)
+        try
             {
-                return i;
+            for(int i = 0 ; i < lista.size() ; i++)
+            {
+                Method metodo = lista.get(i).getClass().getDeclaredMethod("getId");
+                int id = (int)metodo.invoke(lista.get(i));
+
+                if(i != id)
+                {
+                    return i;
+                }
+
             }
+        }catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException e)
+        {
             
         }
+        
         
         return lista.size() ; 
     }
