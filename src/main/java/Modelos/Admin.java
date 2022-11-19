@@ -9,5 +9,16 @@ package Modelos;
  * @author jonathanvega
  */
 public class Admin {
+    private int id;
+
+    public Admin(int id) {
+        this.id = id;
+    }
     
+    
+    
+    public int getId()
+    {
+        return id;
+    }
 }

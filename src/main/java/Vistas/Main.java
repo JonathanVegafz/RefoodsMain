@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import Modelos.*;
 import Controladores.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -27,9 +28,24 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         
         BaseDatos.conectar(rootPane);
+        
+        ArrayList<Admin> admis = new ArrayList<>();
+        
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        
+        for(Admin admin : admis)
+        {
+            System.out.println(admin.getId());
+        }
+        
+        
         initComponents();
         
         //Predicado<Restaurante> p = new Predicado<>(new Restaurante("Nomb", 4), "getNombre");

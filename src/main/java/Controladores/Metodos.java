@@ -7,6 +7,7 @@ package Controladores;
 import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -72,9 +73,21 @@ public class Metodos {
         }
     }
     
-    public static <T> int crearId(ArrayList<T> lista) //Pensarlo
+    public static <T> int crearId(ArrayList<T> lista) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException //Pensarlo
     {
-        return 0 ; //Por mientras
+        for(int i = 0 ; i < lista.size() ; i++)
+        {
+            Method metodo = lista.get(i).getClass().getDeclaredMethod("getId");
+            int id = (int)metodo.invoke(lista.get(i));
+            
+            if(i != id)
+            {
+                return i;
+            }
+            
+        }
+        
+        return lista.size() ; 
     }
     
     public static <T> boolean buscarElemento(ArrayList<T> lista, Predicate<? super T> filtro) //Pensarlo
