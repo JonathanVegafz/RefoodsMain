@@ -21,6 +21,11 @@ public class UsuarioPersona extends Usuario {
         this.nombreRestaurante = nombreRestaurante;
     }
 
+    public UsuarioPersona() {
+    }
+    
+    
+
     public String getRut() {
         return rut;
     }

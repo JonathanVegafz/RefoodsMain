@@ -26,6 +26,11 @@ public /*abstract*/ class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+    public Usuario() {
+    }
+
+    
+    
     ///public abstract void cambioContrasena(String nuevaContrasena);
     //public abstract void cambionNombreUsuario(String nuevoNombreUsuario);
     public String getNombreUsuario() {

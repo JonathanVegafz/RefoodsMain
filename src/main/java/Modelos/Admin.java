@@ -12,12 +12,20 @@ import Enums.Tipo_Usuario;
  */
 
 public class Admin extends UsuarioPersona{
-    Restaurante restaurante;    
+    private Restaurante restaurante;   
+    
 
     public Admin(Restaurante restaurante, String rut, String nombreRestaurante, String nombreUsuario, String contrasena, Tipo_Usuario tipoUsuario) {
         super(rut, nombreRestaurante, nombreUsuario, contrasena, tipoUsuario);
         this.restaurante = restaurante;
     }
+
+    public Admin(int id) {
+        this.setId(id);
+    }
+    
+    
+    
 
 
     public Restaurante getRestaurante() {

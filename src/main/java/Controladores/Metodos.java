@@ -73,27 +73,28 @@ public class Metodos {
         }
     }
     
-    public static <T> int crearId(ArrayList<T> lista)  //Pensarlo
+    public static <T> int crearId(ArrayList<T> lista)   //Pensarlo
     {
         try
             {
             for(int i = 0 ; i < lista.size() ; i++)
             {
-                Method metodo = lista.get(i).getClass().getDeclaredMethod("getId");
+                Method metodo = lista.get(i).getClass().getMethod("getId");
                 int id = (int)metodo.invoke(lista.get(i));
-
+                //System.out.println("IdCreado ..: " + (i));
                 if(i != id)
                 {
+                    System.out.println("IdCreado ..: " + (i));
                     return i;
                 }
 
             }
         }catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException e)
         {
-            
+        
         }
         
-        
+        //System.out.println("IdCreado: " + lista.size());
         return lista.size() ; 
     }
     
