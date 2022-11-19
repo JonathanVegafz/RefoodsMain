@@ -111,7 +111,5 @@ public class Restaurante {
     {
         
     }
-    public void mostrarRestaurante(){
-        
-    }
+
 }
