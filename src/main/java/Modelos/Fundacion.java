@@ -4,6 +4,7 @@
  */
 package Modelos;
 
+import Controladores.Metodos;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,17 @@ class Fundacion {
         this.listaRestaurantesAsociados = listaRestaurantesAsociados;
         this.historialEnviosRecibidos = historialEnviosRecibidos;
     }
-
+    public void mostrarRestaurantesAsociados(){
+        for(Restaurante restaurante : listaRestaurantesAsociados){
+            System.out.println(restaurante.getNombre());
+        }
+    }
+    public void mostrarHistorialEnviosRecibidos(){
+        for(Envio envio : historialEnviosRecibidos){
+            Metodos.mostrarDato(envio, envio.getId(),envio.getRestauranteOrigen(),envio.getFundacionDestino());
+            envio.mostrarDetalles();
+        }
+    }
     public String getUbicacion() {
         return ubicacion;
     }

@@ -4,6 +4,7 @@
  */
 package Modelos;
 
+import Controladores.Metodos;
 import java.util.ArrayList;
 
 /**
@@ -16,11 +17,11 @@ class Envio {
     private int cantidadProductosEnviar;
     private String aplicacionEnvio;
     private String descripcion;
-    private Fundacion fundacionDestino;
+    private String fundacionDestino;
     private String restauranteOrigen;
     private ArrayList<Producto> listaProductosEnviar;
 
-    public Envio(int id, int cantidadProductosEnviar, String aplicacionEnvio, String descripcion, Fundacion fundacionDestino, String restauranteOrigen, ArrayList<Producto> listaProductosEnviar) {
+    public Envio(int id, int cantidadProductosEnviar, String aplicacionEnvio, String descripcion, String fundacionDestino, String restauranteOrigen, ArrayList<Producto> listaProductosEnviar) {
         this.id = id;
         this.cantidadProductosEnviar = cantidadProductosEnviar;
         this.aplicacionEnvio = aplicacionEnvio;
@@ -29,7 +30,16 @@ class Envio {
         this.restauranteOrigen = restauranteOrigen;
         this.listaProductosEnviar = listaProductosEnviar;
     }
-
+    public void mostrarDetalles(){
+        //atributos mostrar
+        //System.out.println("ID : "+ id + " Cantidad productos : "+cantidadProductosEnviar+" app envio : " + aplicacionEnvio+" Fundacion destino: " + fundacionDestino + "Restaurante origen: "+restauranteOrigen);
+        //System.out.println("Descripcion : " + descripcion);
+        System.out.println("Productos cargados  : ");
+        for(Producto producto : listaProductosEnviar){
+            Metodos.mostrarDato(producto, producto.getNombre());
+        }
+                
+    }
     public int getId() {
         return id;
     }
@@ -62,11 +72,11 @@ class Envio {
         this.descripcion = descripcion;
     }
 
-    public Fundacion getFundacionDestino() {
+    public String getFundacionDestino() {
         return fundacionDestino;
     }
 
-    public void setFundacionDestino(Fundacion fundacionDestino) {
+    public void setFundacionDestino(String fundacionDestino) {
         this.fundacionDestino = fundacionDestino;
     }
 

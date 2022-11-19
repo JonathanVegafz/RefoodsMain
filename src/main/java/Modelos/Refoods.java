@@ -153,7 +153,6 @@ public class Refoods extends Usuario {
     /*
     falta : buscarElemento -> retorna Objeto 
      */
-
     private void modificarFundacionesAsociadas(Restaurante restauranteEncontrado) {
         int opc;
         switch (opc) {
@@ -185,14 +184,16 @@ public class Refoods extends Usuario {
             }
         }
     }
-    public Fundacion buscarFundacion(int id){
-        for (Fundacion fundacion : fundaciones){
-            if (fundacion.getId() == id){
+
+    public Fundacion buscarFundacion(int id) {
+        for (Fundacion fundacion : fundaciones) {
+            if (fundacion.getId() == id) {
                 return fundacion;
             }
         }
         return null;
     }
+
     public void modificarFundacion(int id) {
         if (Metodos.buscarElemento(fundaciones, (us) -> us.getId() == id)) {
             Fundacion fundacionEncontrada = buscarFundacion(id);
@@ -212,10 +213,17 @@ public class Refoods extends Usuario {
         }
         System.out.println("Fundacion de id " + id + " no existe");
     }
-    public void eliminarFundacion(int id){
-        if (Metodos.buscarElemento(fundaciones, (f) -> f.getId() == id)){
+
+    public void eliminarFundacion(int id) {
+        if (Metodos.buscarElemento(fundaciones, (f) -> f.getId() == id)) {
             fundaciones.remove(buscarFundacion(id));
         }
     }
-   
+
+    public void mostrarFundacion() {
+        Metodos.mostrarDato(this, fundaciones);
+
+  
+    }
+
 }

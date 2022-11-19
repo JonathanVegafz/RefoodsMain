@@ -23,7 +23,7 @@ class Producto {
         this.idProducto = idProducto;
         this.cantidad = cantidad;
     }
-
+   
     public String getNombre() {
         return nombre;
     }
