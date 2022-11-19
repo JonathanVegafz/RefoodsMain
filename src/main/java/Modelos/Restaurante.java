@@ -55,7 +55,9 @@ public class Restaurante {
         System.out.println("No se encontro envio de id " + id);
     }
     //metodos gestion  empleados
-
+    public void buscarEmpleado(){
+        
+    }
     public void agregarEmpleado(Empleado empleadoNuevo) {
         //llenar datos empleado
         empleadoNuevo.setId(Metodos.crearId(listaEmpleados));
@@ -87,7 +89,21 @@ public class Restaurante {
         System.out.println("Empleado de id " + id + " no existe");
     }
     //gestionar fundaciones asociadas
-    
+    public void mostrarFundacionesAsociadas(){
+        for (Fundacion fundacion : listaFundacionesAsociadas){
+            Metodos.mostrarDato(fundacion, fundacion.getNombre(), fundacion.getId());
+        }
+    }
+    public void agregarFundacionAsociada(Fundacion fundacion){
+        fundacion.setId(Metodos.crearId(listaFundacionesAsociadas));
+        listaFundacionesAsociadas.add(fundacion);
+    }
+    public void buscarFundacionAsociada(){
+        
+    }
+    public void eliminarFundacionAsociada(int id){
+        listaFundacionesAsociadas.remove(Metodos.buscarElemento(listaFundacionesAsociadas, (fund) -> id == fund.getId()));
+    }
     
     public String getNombre() {
         return nombre;
