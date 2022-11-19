@@ -47,12 +47,11 @@ public class Restaurante {
     }
 
     public void eliminarEnvio(int id) {
-        if (Metodos.buscarElemento(historialEnvios, (env) -> id == env.getId())) {
-            historialEnvios.remove(Metodos.buscarElemento(historialEnvios, (env) -> id == env.getId()));
-            System.out.println("Eliminado correctamente");
+        if (historialEnvios.removeIf(envio-> id == envio.getId())){
+            System.out.println("Envio eliminado correctamente");
             return;
         }
-        System.out.println("No se encontro envio de id " + id);
+        System.out.println("Envio de id "+id+" no encontrado");
     }
     //metodos gestion  empleados
     public void buscarEmpleado(){
@@ -64,10 +63,9 @@ public class Restaurante {
         listaEmpleados.add(empleadoNuevo);
     }
 
-    public void eliminarEmpleado() {
-        if (Metodos.buscarElemento(listaEmpleados, (emp) -> id == emp.getId())) {
-            historialEnvios.remove(Metodos.buscarElemento(listaEmpleados, (emp) -> id == emp.getId()));
-            System.out.println("Eliminado correctamente");
+    public void eliminarEmpleado(int id) {
+        if (listaEmpleados.removeIf(emp -> id == emp.getId())){
+            System.out.println("Empleado eliminado correctamente ");
             return;
         }
         System.out.println("No se encontro empleado de id " + id);
@@ -102,7 +100,13 @@ public class Restaurante {
         
     }
     public void eliminarFundacionAsociada(int id){
-        listaFundacionesAsociadas.remove(Metodos.buscarElemento(listaFundacionesAsociadas, (fund) -> id == fund.getId()));
+        if(listaFundacionesAsociadas.removeIf(fund -> id == fund.getId())){
+            System.out.println("Se elimino correctamente");
+            return;
+        }
+        System.out.println("La fundacion de id " +  id + " no existe");
+        
+        
     }
     
     public String getNombre() {

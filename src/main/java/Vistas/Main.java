@@ -28,9 +28,22 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         
         BaseDatos.conectar(rootPane);
+        
+        ArrayList<Admin> admis = new ArrayList<>();
+        
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        admis.add(new Admin(Metodos.crearId(admis)));
+        
+        for(Admin admin : admis)
+        {
+            System.out.println(admin.getId());
+        }
         
         
         initComponents();

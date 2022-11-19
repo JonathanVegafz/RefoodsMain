@@ -222,8 +222,6 @@ public class Refoods extends Usuario {
 
     public void mostrarFundacion() {
         Metodos.mostrarDato(this, fundaciones);
-
-  
     }
 
 }
