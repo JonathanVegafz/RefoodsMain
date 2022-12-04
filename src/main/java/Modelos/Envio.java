@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author sebas
  */
-class Envio {
+class Envio implements Detalles{
 
     private int id;
     private int cantidadProductosEnviar;
@@ -39,6 +39,27 @@ class Envio {
             Metodos.mostrarDato(producto, producto.getNombre());
         }
                 
+    }
+    @Override
+    public void mostrarDatos() {
+        System.out.println(" Datos del envio ");
+        System.out.println(" ID : " + id  + " aplicacion de envio  :" + aplicacionEnvio + "Restaurante origen : " +  restauranteOrigen + " Fundacion destino : " +  fundacionDestino);
+        System.out.println(" Descripcion : " + descripcion );
+        System.out.println(" Lista de productos : ");
+        for (Producto producto : listaProductosEnviar){
+            System.out.println(" - " +producto.getNombre());
+        }
+    }
+
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println(" Datos del envio ");
+        System.out.println(" Origen : " + restauranteOrigen + " Fundacion destino : " +  fundacionDestino);
+        System.out.println("Descripcion : " + descripcion);
+        System.out.println(" Lista de productos : ");
+        for (Producto producto : listaProductosEnviar){
+            System.out.println(" - " + producto.getNombre());
+        }
     }
     public int getId() {
         return id;
@@ -95,6 +116,8 @@ class Envio {
     public void setListaProductosEnviar(ArrayList<Producto> listaProductosEnviar) {
         this.listaProductosEnviar = listaProductosEnviar;
     }
+
+    
     
     
 }

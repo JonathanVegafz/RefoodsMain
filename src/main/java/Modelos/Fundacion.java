@@ -11,7 +11,8 @@ import java.util.ArrayList;
  *
  * @author jonathanvega
  */
-class Fundacion {
+class Fundacion implements Detalles {
+
     private int id;
     private String nombre;
     private String ubicacion;
@@ -25,17 +26,40 @@ class Fundacion {
         this.listaRestaurantesAsociados = listaRestaurantesAsociados;
         this.historialEnviosRecibidos = historialEnviosRecibidos;
     }
-    public void mostrarRestaurantesAsociados(){
-        for(Restaurante restaurante : listaRestaurantesAsociados){
+
+    public void mostrarRestaurantesAsociados() {
+        for (Restaurante restaurante : listaRestaurantesAsociados) {
             System.out.println(restaurante.getNombre());
         }
     }
-    public void mostrarHistorialEnviosRecibidos(){
-        for(Envio envio : historialEnviosRecibidos){
-            Metodos.mostrarDato(envio, envio.getId(),envio.getRestauranteOrigen(),envio.getFundacionDestino());
+
+    public void mostrarHistorialEnviosRecibidos() {
+        for (Envio envio : historialEnviosRecibidos) {
+            Metodos.mostrarDato(envio, envio.getId(), envio.getRestauranteOrigen(), envio.getFundacionDestino());
             envio.mostrarDetalles();
         }
     }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println(" Datos de fundacion ");
+        System.out.println("Nombre : " + nombre + " Ubicacion : " + ubicacion + "ID : " + id);
+        System.out.println(" Lista restaurantes asociados : ");
+        for (Restaurante restaurante : listaRestaurantesAsociados){
+            System.out.println(" - " + restaurante.getNombre());
+        }
+        System.out.println(" Historial de envios recibidos : ");
+        for (Envio envio : historialEnviosRecibidos){
+            envio.mostrarDatosPrincipales();
+        }
+    }
+
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println(" Datos de fundacion ");
+        System.out.println("Nombre : " + nombre + " Ubicacion : " + ubicacion);
+    }
+
     public String getUbicacion() {
         return ubicacion;
     }
@@ -75,5 +99,5 @@ class Fundacion {
     public void setId(int id) {
         this.id = id;
     }
-    
+
 }

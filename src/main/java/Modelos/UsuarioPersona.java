@@ -10,7 +10,8 @@ import Enums.Tipo_Usuario;
  *
  * @author jonathanvega
  */
-public class UsuarioPersona extends Usuario {
+// con abstract las clases hijas tambien heredan los metodos de Usuario que implementan Detalles (interface)
+public abstract  class UsuarioPersona extends Usuario {
 
     private String rut;
     private String nombreRestaurante;
@@ -41,6 +42,9 @@ public class UsuarioPersona extends Usuario {
     public void setNombreRestaurante(String nombreRestaurante) {
         this.nombreRestaurante = nombreRestaurante;
     }
+
+
+    
 
     
     

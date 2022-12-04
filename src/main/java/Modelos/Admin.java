@@ -35,5 +35,17 @@ public class Admin extends UsuarioPersona{
     public void setRestaurante(Restaurante restaurante) {
         this.restaurante = restaurante;
     }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println(" Datos del administrador ");
+        System.out.println("Restaurante : " +  restaurante.getNombre() );
+    }
+
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println(" Datos del administrador ");
+        System.out.println("Restaurante de administrador : " +  restaurante.getNombre());
+    }
   
 }

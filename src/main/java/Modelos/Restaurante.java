@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author jonathanvega
  */
-public class Restaurante {
+public class Restaurante implements Detalles{
 
     private String nombre;
     private String ubicacion;
@@ -38,7 +38,30 @@ public class Restaurante {
     public void buscarEnvio() {
 
     }
-
+    
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println("Datos de restaurante ");
+        System.out.println("Nombre : " +  nombre + "id : " +  id + " Telefono : " +  numeroTelefono);
+    }
+    @Override
+    public void mostrarDatos(){
+        System.out.println("Datos de restaurante ");
+        System.out.println("Nombre : " +  nombre + " Ubicacion : " + ubicacion + "Correo electronico : " + correoElectronico +"id : " +  id + " Telefono : " +  numeroTelefono);
+        System.out.println(" Admin : "+ admin.getNombreUsuario());
+        System.out.println(" Lista empleados ");
+        for (Empleado empleado : listaEmpleados){
+            System.out.println(empleado.getNombre());
+        }
+        System.out.println(" Lista fundaciones asociadas");
+        for (Fundacion fundacion : listaFundacionesAsociadas){
+            System.out.println(fundacion.getNombre());
+        }
+        System.out.println(" Historial envios");
+        for (Envio envio : historialEnvios){
+            envio.mostrarDatosPrincipales();
+        }
+    }
     public void mostrarHistorialEnvio() {
         for (Envio envio : historialEnvios) {
             Metodos.mostrarDato(envio, envio.getId(), envio.getRestauranteOrigen(), envio.getFundacionDestino());
@@ -105,8 +128,6 @@ public class Restaurante {
             return;
         }
         System.out.println("La fundacion de id " +  id + " no existe");
-        
-        
     }
     
     public String getNombre() {
@@ -185,5 +206,6 @@ public class Restaurante {
     {
 
     }
+
 
 }

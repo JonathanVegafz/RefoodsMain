@@ -10,7 +10,7 @@ import Enums.Tipo_Usuario;
  *
  * @author jonathanvega
  */
-public /*abstract*/ class Usuario {
+public abstract class Usuario implements Detalles{
 
     private String nombreUsuario;
     private String contrasena;
@@ -29,7 +29,8 @@ public /*abstract*/ class Usuario {
     public Usuario() {
     }
 
-    
+    //public abstract void mostrarDatos();
+    //public abstract void mostrarDetalles();
     
     ///public abstract void cambioContrasena(String nuevaContrasena);
     //public abstract void cambionNombreUsuario(String nuevoNombreUsuario);

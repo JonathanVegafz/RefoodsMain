@@ -24,7 +24,16 @@ class Empleado extends UsuarioPersona{
         this.id = id;
         this.permisos = permisos;
     }
+   @Override
+    public void mostrarDatos() {
+        System.out.println("Datos del empleado : " + nombre + " ID : " +  id + " Permidos  : " + permisos.toString());
+    }
 
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println("Datos del empleado : " + nombre + " ID : " +  id);
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -48,6 +57,7 @@ class Empleado extends UsuarioPersona{
     public void setPermisos(HashMap<String, Boolean> permisos) {
         this.permisos = permisos;
     }
-    
+
+ 
     
 }

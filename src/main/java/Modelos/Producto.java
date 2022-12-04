@@ -8,7 +8,7 @@ package Modelos;
  *
  * @author sebas
  */
-class Producto {
+class Producto implements Detalles {
 
     private String nombre;
     private char tipo;
@@ -23,7 +23,18 @@ class Producto {
         this.idProducto = idProducto;
         this.cantidad = cantidad;
     }
-   
+     @Override
+    public void mostrarDatos() {
+        System.out.println(" Datos de producto ");
+        System.out.println(" Nombre  : " + nombre + "Tipo : "+ tipo + " Cantidad : " + cantidad + unidadMedida + " ID : " + idProducto);
+    }
+
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println(" Datos de producto ");
+        System.out.println(" Nombre  : " + nombre + " Cantida : " + cantidad + unidadMedida);
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -63,6 +74,7 @@ class Producto {
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
-    
+
+  
     
 }

@@ -22,20 +22,22 @@ public class Refoods extends Usuario {
         super(nombreUsuario, contrasena, tipoUsuario);
     }
 
-    public ArrayList<Restaurante> getRestaurantes() {
-        return restaurantes;
+    @Override
+    public void mostrarDatos() {
+        System.out.println("Restaurantes en Refoods ( " + restaurantes.size() + " )");
+        for (Restaurante restaurante : restaurantes) {
+            restaurante.mostrarDatos();
+        }
+        System.out.println("Fundaciones en refoods ( " + fundaciones.size() + " ) ");
+        for (Fundacion fundacion : fundaciones) {
+            fundacion.mostrarDatos();
+        }
     }
 
-    public ArrayList<Fundacion> getFundaciones() {
-        return fundaciones;
-    }
-
-    public void setRestaurantes(ArrayList<Restaurante> restaurantes) {
-        this.restaurantes = restaurantes;
-    }
-
-    public void setFundaciones(ArrayList<Fundacion> fundaciones) {
-        this.fundaciones = fundaciones;
+    @Override
+    public void mostrarDatosPrincipales() {
+        System.out.println(" Restaurantes en Refoods  : " + restaurantes.size());
+        System.out.println(" Fundaciones en Refoods : " + fundaciones.size());
     }
 
     //Metodos sobre restaurantes 
@@ -222,6 +224,21 @@ public class Refoods extends Usuario {
 
     public void mostrarFundacion() {
         Metodos.mostrarDato(this, fundaciones);
+    }
+    public ArrayList<Restaurante> getRestaurantes() {
+        return restaurantes;
+    }
+
+    public ArrayList<Fundacion> getFundaciones() {
+        return fundaciones;
+    }
+
+    public void setRestaurantes(ArrayList<Restaurante> restaurantes) {
+        this.restaurantes = restaurantes;
+    }
+
+    public void setFundaciones(ArrayList<Fundacion> fundaciones) {
+        this.fundaciones = fundaciones;
     }
 
 }
