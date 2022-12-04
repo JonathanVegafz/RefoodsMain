@@ -73,8 +73,8 @@ public class Restaurante {
 
     public void modificarEmpleado(int idEmpleado) {
         if (Metodos.buscarElemento(listaEmpleados, (emp) -> emp.getId() == idEmpleado)) {
-            Empleado empleadoEncontrado = Metodos.buscarElemento(listaEmpleados, (emp) -> emp.getId() == idEmpleado);
-            int opc;
+            Empleado empleadoEncontrado = Metodos.getbuscarElemento(listaEmpleados, (emp) -> emp.getId() == idEmpleado);
+            int opc = 0;
             //entrada validada con metodo generico
             switch (opc) {
                 case 1: //modifica nombre

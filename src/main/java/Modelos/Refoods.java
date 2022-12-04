@@ -86,7 +86,7 @@ public class Refoods extends Usuario {
     public void modificarRestaurante(int id) {
         if (Metodos.buscarElemento(restaurantes, (us) -> us.getId() == id)) {
             Restaurante restauranteEncontrado = buscarRestaurante(id);
-            int opc;
+            int opc = 0;
             //entrada validada con metodo generico
             switch (opc) {
                 case 1: //modifica admin
@@ -116,21 +116,21 @@ public class Refoods extends Usuario {
     }*/
     private void modificarAdmin(Restaurante restauranteEncontrado) {
 
-        String nombre;//validar generico
+        String nombre = "";//validar generico
         restauranteEncontrado.getAdmin().setNombreUsuario(nombre);
     }
 
     private void modificarEmpleados(Restaurante restauranteEncontrado) {
-        int opc;
+        int opc = 0;
         switch (opc) {
             case 1: //agrega empleado
-                Empleado empleadoNuevo;
+                Empleado empleadoNuevo = null;
                 restauranteEncontrado.getListaEmpleados().add(empleadoNuevo);
                 //agregar empleado a lista
                 break;
             case 2: //elimina empleado
                 int idEmpleadoBuscar;
-                Empleado empleadoEncontrado;// = Metodos.buscarElemento(restauranteEncontrado.getListaEmpleados(), (us) -> us.getId() == idEmpleadoBuscar);
+                Empleado empleadoEncontrado = null;// = Metodos.buscarElemento(restauranteEncontrado.getListaEmpleados(), (us) -> us.getId() == idEmpleadoBuscar);
                 restauranteEncontrado.getListaEmpleados().remove(empleadoEncontrado);
                 break;
 
@@ -154,16 +154,16 @@ public class Refoods extends Usuario {
     falta : buscarElemento -> retorna Objeto 
      */
     private void modificarFundacionesAsociadas(Restaurante restauranteEncontrado) {
-        int opc;
+        int opc = 0;
         switch (opc) {
             case 1: //agrega empleado
-                Fundacion fundacionNueva;
+                Fundacion fundacionNueva = null;
                 restauranteEncontrado.getListaFundacionesAsociadas().add(fundacionNueva);
                 //agregar empleado a lista
                 break;
             case 2: //elimina empleado
                 int idFundacionBuscar;
-                Fundacion fundacionEncontrada;// = Metodos.buscarElemento(restauranteEncontrado.getListaEmpleados(), (us) -> us.getId() == idFundacionBuscar);
+                Fundacion fundacionEncontrada = null;// = Metodos.buscarElemento(restauranteEncontrado.getListaEmpleados(), (us) -> us.getId() == idFundacionBuscar);
                 restauranteEncontrado.getListaEmpleados().remove(fundacionEncontrada);
                 break;
         }
@@ -197,15 +197,15 @@ public class Refoods extends Usuario {
     public void modificarFundacion(int id) {
         if (Metodos.buscarElemento(fundaciones, (us) -> us.getId() == id)) {
             Fundacion fundacionEncontrada = buscarFundacion(id);
-            int opc;
+            int opc = 0;
             //entrada validada con metodo generico
             switch (opc) {
                 case 1: //modifica nombre
-                    String nombre;
+                    String nombre = "";
                     fundacionEncontrada.setNombre(nombre);
                     break;
                 case 2: //modifica ubicacion
-                    String ubicacion;
+                    String ubicacion = "";
                     fundacionEncontrada.setUbicacion(ubicacion);
                     break;
             }

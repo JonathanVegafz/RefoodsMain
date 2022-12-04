@@ -114,5 +114,20 @@ public class Metodos {
 
     }
     
+    public static <T> T getbuscarElemento(ArrayList<T> lista, Predicate<? super T> filtro)
+    {
+        try{
+        
+            ArrayList<T> listaNueva = (ArrayList<T>) lista.stream().filter(filtro).collect(Collectors.toList());
+
+            return listaNueva.get(0);
+        }catch(Error e)
+        {
+            System.out.println(e.getMessage());
+        }
+        return null;
+        
+    }
+    
     
 }

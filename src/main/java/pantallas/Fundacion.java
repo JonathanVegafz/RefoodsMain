@@ -6,6 +6,7 @@ package pantallas;
 
 import java.awt.Color;
 
+
 /**
  *
  * @author crist
