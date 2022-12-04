@@ -30,16 +30,7 @@ class Envio implements Detalles{
         this.restauranteOrigen = restauranteOrigen;
         this.listaProductosEnviar = listaProductosEnviar;
     }
-    public void mostrarDetalles(){
-        //atributos mostrar
-        //System.out.println("ID : "+ id + " Cantidad productos : "+cantidadProductosEnviar+" app envio : " + aplicacionEnvio+" Fundacion destino: " + fundacionDestino + "Restaurante origen: "+restauranteOrigen);
-        //System.out.println("Descripcion : " + descripcion);
-        System.out.println("Productos cargados  : ");
-        for(Producto producto : listaProductosEnviar){
-            Metodos.mostrarDato(producto, producto.getNombre());
-        }
-                
-    }
+    
     @Override
     public void mostrarDatos() {
         System.out.println(" Datos del envio ");
@@ -50,7 +41,7 @@ class Envio implements Detalles{
             System.out.println(" - " +producto.getNombre());
         }
     }
-
+  
     @Override
     public void mostrarDatosPrincipales() {
         System.out.println(" Datos del envio ");

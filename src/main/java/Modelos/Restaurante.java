@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author jonathanvega
  */
-public class Restaurante implements Detalles{
+public class Restaurante implements Detalles {
 
     private String nombre;
     private String ubicacion;
@@ -38,48 +38,73 @@ public class Restaurante implements Detalles{
     public void buscarEnvio() {
 
     }
-    
+    //se recorre todos los restaurantes y por cada restaurante se consiguen los empleados con esa secuencia en el nombre
+    //retorna una lista de empleados con la secuencia a buscar en sus nombres
+    public ArrayList<Empleado> getEmpleadosConSecuencia(String patron){
+        ArrayList<Empleado> empleadosEncontrados = new ArrayList<>();
+        for (Empleado empleado : listaEmpleados){
+            if (empleado.getNombre().contains(patron)){
+                empleadosEncontrados.add(empleado);
+            }
+        }
+        return empleadosEncontrados;
+    }
+    //retorna el primero envio con mas productos, si otro envio tiene misma cantidad que el maximo no lo toma, solo el primer caso.
+    public Envio buscarEnvioMasProductos(){
+        Envio envioMasProductos = null;
+        for (Envio envio : historialEnvios){
+            if (envioMasProductos == null || envio.getCantidadProductosEnviar() > envioMasProductos.getCantidadProductosEnviar()){
+                envioMasProductos = envio;
+            }
+        }
+        return envioMasProductos;
+    }
+
     @Override
     public void mostrarDatosPrincipales() {
         System.out.println("Datos de restaurante ");
-        System.out.println("Nombre : " +  nombre + "id : " +  id + " Telefono : " +  numeroTelefono);
+        System.out.println("Nombre : " + nombre + "id : " + id + " Telefono : " + numeroTelefono);
     }
+
     @Override
-    public void mostrarDatos(){
+    public void mostrarDatos() {
         System.out.println("Datos de restaurante ");
-        System.out.println("Nombre : " +  nombre + " Ubicacion : " + ubicacion + "Correo electronico : " + correoElectronico +"id : " +  id + " Telefono : " +  numeroTelefono);
-        System.out.println(" Admin : "+ admin.getNombreUsuario());
+        System.out.println("Nombre : " + nombre + " Ubicacion : " + ubicacion + "Correo electronico : " + correoElectronico + "id : " + id + " Telefono : " + numeroTelefono);
+        System.out.println(" Admin : " + admin.getNombreUsuario());
         System.out.println(" Lista empleados ");
-        for (Empleado empleado : listaEmpleados){
+        for (Empleado empleado : listaEmpleados) {
             System.out.println(empleado.getNombre());
         }
         System.out.println(" Lista fundaciones asociadas");
-        for (Fundacion fundacion : listaFundacionesAsociadas){
+        for (Fundacion fundacion : listaFundacionesAsociadas) {
             System.out.println(fundacion.getNombre());
         }
         System.out.println(" Historial envios");
-        for (Envio envio : historialEnvios){
+        for (Envio envio : historialEnvios) {
             envio.mostrarDatosPrincipales();
         }
     }
+
     public void mostrarHistorialEnvio() {
         for (Envio envio : historialEnvios) {
             Metodos.mostrarDato(envio, envio.getId(), envio.getRestauranteOrigen(), envio.getFundacionDestino());
-            envio.mostrarDetalles();
+            envio.mostrarDatosPrincipales();
         }
     }
 
     public void eliminarEnvio(int id) {
-        if (historialEnvios.removeIf(envio-> id == envio.getId())){
+        if (historialEnvios.removeIf(envio -> id == envio.getId())) {
             System.out.println("Envio eliminado correctamente");
             return;
         }
-        System.out.println("Envio de id "+id+" no encontrado");
+        System.out.println("Envio de id " + id + " no encontrado");
     }
+
     //metodos gestion  empleados
-    public void buscarEmpleado(){
-        
+    public void buscarEmpleado() {
+
     }
+
     public void agregarEmpleado(Empleado empleadoNuevo) {
         //llenar datos empleado
         empleadoNuevo.setId(Metodos.crearId(listaEmpleados));
@@ -87,7 +112,7 @@ public class Restaurante implements Detalles{
     }
 
     public void eliminarEmpleado(int id) {
-        if (listaEmpleados.removeIf(emp -> id == emp.getId())){
+        if (listaEmpleados.removeIf(emp -> id == emp.getId())) {
             System.out.println("Empleado eliminado correctamente ");
             return;
         }
@@ -109,27 +134,31 @@ public class Restaurante implements Detalles{
         }
         System.out.println("Empleado de id " + id + " no existe");
     }
+
     //gestionar fundaciones asociadas
-    public void mostrarFundacionesAsociadas(){
-        for (Fundacion fundacion : listaFundacionesAsociadas){
+    public void mostrarFundacionesAsociadas() {
+        for (Fundacion fundacion : listaFundacionesAsociadas) {
             Metodos.mostrarDato(fundacion, fundacion.getNombre(), fundacion.getId());
         }
     }
-    public void agregarFundacionAsociada(Fundacion fundacion){
+
+    public void agregarFundacionAsociada(Fundacion fundacion) {
         fundacion.setId(Metodos.crearId(listaFundacionesAsociadas));
         listaFundacionesAsociadas.add(fundacion);
     }
-    public void buscarFundacionAsociada(){
-        
+
+    public void buscarFundacionAsociada() {
+
     }
-    public void eliminarFundacionAsociada(int id){
-        if(listaFundacionesAsociadas.removeIf(fund -> id == fund.getId())){
+
+    public void eliminarFundacionAsociada(int id) {
+        if (listaFundacionesAsociadas.removeIf(fund -> id == fund.getId())) {
             System.out.println("Se elimino correctamente");
             return;
         }
-        System.out.println("La fundacion de id " +  id + " no existe");
+        System.out.println("La fundacion de id " + id + " no existe");
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -206,6 +235,5 @@ public class Restaurante implements Detalles{
     {
 
     }
-
 
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author jonathanvega
  */
 class Fundacion implements Detalles {
-
+   
     private int id;
     private String nombre;
     private String ubicacion;
@@ -36,7 +36,7 @@ class Fundacion implements Detalles {
     public void mostrarHistorialEnviosRecibidos() {
         for (Envio envio : historialEnviosRecibidos) {
             Metodos.mostrarDato(envio, envio.getId(), envio.getRestauranteOrigen(), envio.getFundacionDestino());
-            envio.mostrarDetalles();
+            envio.mostrarDatosPrincipales();
         }
     }
 
