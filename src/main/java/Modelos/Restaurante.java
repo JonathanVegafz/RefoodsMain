@@ -38,7 +38,7 @@ public class Restaurante implements Detalles {
     public void buscarEnvio() {
 
     }
-    //se recorre todos los restaurantes y por cada restaurante se consiguen los empleados con esa secuencia en el nombre
+    //se recorre todos los restaurantes en el main y por cada restaurante se consiguen los empleados con esa secuencia en el nombre
     //retorna una lista de empleados con la secuencia a buscar en sus nombres
     public ArrayList<Empleado> getEmpleadosConSecuencia(String patron){
         ArrayList<Empleado> empleadosEncontrados = new ArrayList<>();
